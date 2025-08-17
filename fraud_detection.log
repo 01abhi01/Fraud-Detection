@@ -455,3 +455,132 @@ Top 5 Most Important Features:
 2025-08-18 02:26:02,887 - INFO - SHAP explainer initialized successfully
 2025-08-18 02:26:02,888 - INFO - Model training completed successfully
 2025-08-18 02:26:04,839 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:29:51,145 - INFO - Database initialized successfully
+2025-08-18 02:29:51,154 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:29:51,155 - INFO - Starting model training...
+2025-08-18 02:29:51,759 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:29:51,759 - INFO - 
+Random Forest Performance:
+2025-08-18 02:29:51,761 - INFO - ROC AUC: 1.0000
+2025-08-18 02:29:51,768 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:29:51,768 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:29:51,774 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:29:51,774 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:29:51,780 - INFO - Initializing SHAP explainer...
+2025-08-18 02:29:51,786 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:29:51,786 - INFO - Model training completed successfully
+2025-08-18 02:29:53,607 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:30:25,364 - INFO - Database initialized successfully
+2025-08-18 02:30:25,373 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:30:25,373 - INFO - Starting model training...
+2025-08-18 02:30:25,853 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:30:25,854 - INFO - 
+Random Forest Performance:
+2025-08-18 02:30:25,855 - INFO - ROC AUC: 1.0000
+2025-08-18 02:30:25,861 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:30:25,861 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:30:25,869 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:30:25,870 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:30:25,876 - INFO - Initializing SHAP explainer...
+2025-08-18 02:30:25,881 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:30:25,881 - INFO - Model training completed successfully
+2025-08-18 02:30:27,710 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:30:28,875 - INFO - HTTP Request: GET http://localhost:7861/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:30:30,958 - INFO - HTTP Request: HEAD http://localhost:7861/ "HTTP/1.1 200 OK"
+2025-08-18 02:31:00,640 - INFO - Using SHAP explainer for explanations...
+2025-08-18 02:31:00,642 - INFO - SHAP values type: <class 'numpy.ndarray'>
+2025-08-18 02:31:00,642 - INFO - Using SHAP values for fraud class from 3D array
+2025-08-18 02:31:00,642 - INFO - Expected value: 0.0377473443020807
+2025-08-18 02:31:00,642 - INFO - SHAP values shape: (16,)
+2025-08-18 02:31:00,643 - INFO - SHAP values content: [ 9.58871060e-03  2.77786261e-03  2.01399129e-02  0.00000000e+00
+  1.70067651e-07  2.25382117e-04  8.39521956e-03 -3.86899667e-03
+ -5.19822326e-03  3.17940387e-01 -4.24528029e-06  4.50785104e-03
+  4.64999990e-03 -1.52422236e-02 -3.59234529e-04  5.71755484e-03]
+2025-08-18 02:31:00,643 - INFO - Feature columns length: 16
+2025-08-18 02:31:00,643 - INFO - SHAP explanation completed successfully with 5 features
+2025-08-18 02:42:17,110 - INFO - Database initialized successfully
+2025-08-18 02:42:17,119 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:42:17,119 - INFO - Starting model training...
+2025-08-18 02:42:17,631 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:42:17,631 - INFO - 
+Random Forest Performance:
+2025-08-18 02:42:17,633 - INFO - ROC AUC: 1.0000
+2025-08-18 02:42:17,641 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:42:17,641 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:42:17,646 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:42:17,647 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:42:17,654 - INFO - Initializing SHAP explainer...
+2025-08-18 02:42:17,661 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:42:17,661 - INFO - Model training completed successfully
+2025-08-18 02:42:19,467 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:42:20,684 - INFO - HTTP Request: GET http://localhost:7861/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:42:22,761 - INFO - HTTP Request: HEAD http://localhost:7861/ "HTTP/1.1 200 OK"
+2025-08-18 02:42:52,474 - INFO - Using SHAP explainer for ensemble-aligned explanations...
+2025-08-18 02:42:52,486 - INFO - Ensemble prediction: 0.571
+2025-08-18 02:42:52,487 - INFO - RF prediction: 0.387
+2025-08-18 02:42:52,488 - INFO - Scaling factor: 1.475
+2025-08-18 02:42:52,489 - INFO - Original baseline: 0.038, Scaled baseline: 0.240
+2025-08-18 02:42:52,490 - INFO - SHAP verification: 0.240 + 0.515 = 0.755
+2025-08-18 02:42:52,491 - INFO - Actual ensemble: 0.571
+2025-08-18 02:42:52,491 - INFO - SHAP explanations generated successfully
+2025-08-18 02:44:55,826 - INFO - Database initialized successfully
