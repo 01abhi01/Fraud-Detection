@@ -17,7 +17,10 @@ A comprehensive real-time credit card fraud detection system combining **Traditi
 - **Risk Classification**: LOW/MEDIUM/HIGH with automated actions
 
 ### 💡 Explainable AI (XAI)
-- **Feature Importance Analysis**: Shows which factors influence decisions
+- **SHAP Integration**: Shapley values for mathematically precise explanations
+- **Feature Attribution**: Shows exactly how each feature contributes to decisions
+- **Individual Transaction Focus**: Explains why THIS specific transaction was flagged
+- **Baseline Comparison**: Shows deviation from expected/normal behavior
 - **Human-readable Explanations**: Converts technical features to business language
 - **Regulatory Compliance**: Detailed audit trails for financial regulations
 - **Decision Transparency**: Clear reasoning for each fraud prediction
@@ -118,18 +121,29 @@ python web_chatbot.py
 
 ## 🔍 Explainable AI Features
 
-### Feature Importance Analysis
+### SHAP-Powered Explanations
 ```python
-# Example explanation output
+# Example SHAP explanation output
 {
     "fraud_score": 0.856,
-    "risk_level": "HIGH", 
+    "risk_level": "HIGH",
+    "explanation_method": "SHAP",
     "explanation_text": "HIGH RISK - Transaction flagged due to unusually high amount and suspicious timing",
+    "shap_explanation": {
+        "expected_value": 0.15,  # Baseline probability
+        "prediction": 0.856,     # Final prediction
+        "feature_contributions": [
+            {"feature": "amount_vs_user_avg", "shap_value": 0.32, "feature_value": 4.5},
+            {"feature": "location_risk_score", "shap_value": 0.21, "feature_value": 0.8},
+            {"feature": "is_unusual_hour", "shap_value": 0.18, "feature_value": 1.0}
+        ]
+    },
     "key_factors": [
-        {"feature": "amount_vs_user_avg", "value": 4.5, "importance": 0.266},
-        {"feature": "risk_interaction", "value": 7.2, "importance": 0.215},
-        {"feature": "is_unusual_hour", "value": 1.0, "importance": 0.195}
+        {"feature": "amount_vs_user_avg", "value": 4.5, "shap_contribution": 0.32},
+        {"feature": "location_risk_score", "value": 0.8, "shap_contribution": 0.21},
+        {"feature": "is_unusual_hour", "value": 1.0, "shap_contribution": 0.18}
     ]
+}
 }
 ```
 

@@ -146,24 +146,40 @@ Instead of choosing between traditional ML, explainability, or user experience, 
 **Problem Solved:** Black-box AI decisions that can't be explained to regulators or customers
 
 **Our Solution:**
-- **Feature Importance Analysis**: Shows exactly which factors influence each decision
+- **SHAP (Shapley Values)**: Individual transaction explanations using game theory
+- **Feature Attribution**: Shows exactly how each feature contributes to the final decision
+- **Baseline Comparison**: Explains deviation from expected/average behavior
 - **Human-readable Explanations**: Converts technical ML outputs to business language
 - **Audit Trails**: Complete decision logs for regulatory compliance
-- **Transparency**: Every decision can be explained with percentage influences
+- **Transparency**: Every decision can be explained with mathematical precision
+
+**SHAP Advantages:**
+```
+Traditional: "High risk due to location and amount"
+SHAP Enhanced: "Base risk: 15% → Final: 87%
+• Amount (+45%): $5000 vs $200 average
+• Location (+20%): Foreign country vs domestic
+• Time (+12%): 3am vs 2pm typical
+• Frequency (-5%): Normal activity pattern"
+```
 
 **Example Impact:**
 ```
 Traditional System: "Transaction blocked" ❌
-Our System: "HIGH RISK (85.6% score) - Blocked due to:
-• Amount 4.5x user average (26.6% influence)
-• Unusual 2am timing (19.5% influence)
-• High-risk location (21.5% influence)" ✅
+Our SHAP System: "HIGH RISK (85.6% score)
+Shapley Breakdown:
+• Amount contribution: +0.32 (26.6% influence)
+• Unusual timing: +0.18 (19.5% influence)  
+• High-risk location: +0.21 (21.5% influence)
+• Expected baseline: 0.15 (normal user)
+Mathematical proof of decision available" ✅
 ```
 
 ### 💡 **2. Explainable AI (XAI)**
 **Regulatory compliance through transparent AI decisions**
 
 **Key Features:**
+- **SHAP Integration**: Shapley values for individual transaction explanations
 - **Feature Importance**: Shows which factors drive decisions
 - **Human-readable Explanations**: Converts ML outputs to business language
 - **Audit Trails**: Complete decision logs for compliance
@@ -322,6 +338,13 @@ Complete implementation available on GitHub
 **Machine Learning:**
 - Python, scikit-learn, pandas, numpy
 - Random Forest, Isolation Forest algorithms
+- **SHAP (SHapley Additive exPlanations)** for explainable AI
+
+**Explainability:**
+- SHAP TreeExplainer for Random Forest interpretability
+- Shapley values for individual transaction explanations
+- Feature attribution with mathematical precision
+- Regulatory-compliant audit trails
 
 **Interfaces:**
 - Gradio (interactive web UI)
