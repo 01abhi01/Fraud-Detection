@@ -26,6 +26,74 @@
 
 ---
 
+## 🎯 **Types of Fraud We Detect**
+
+### **💳 Credit Card Transaction Fraud Detection**
+
+#### **1. Amount-Based Fraud**
+- **Unusually High Transactions**: Purchases significantly above user's normal spending patterns
+- **Micro-Transactions**: Small amounts to test stolen card validity  
+- **Round Number Fraud**: Suspicious round amounts (e.g., exactly $1000, $5000)
+
+#### **2. Temporal Pattern Fraud**
+- **Unusual Hour Transactions**: Purchases at 2am-5am when user typically doesn't shop
+- **Rapid-Fire Transactions**: Multiple purchases within minutes
+- **Weekend/Holiday Anomalies**: Transactions during unusual times for the user
+
+#### **3. Location-Based Fraud**
+- **Geographic Impossibility**: Transactions in different countries within hours
+- **High-Risk Locations**: Purchases from known fraud hotspots
+- **Unfamiliar Locations**: Transactions far from user's typical geographic patterns
+
+#### **4. Merchant Category Fraud**
+- **Unusual Merchant Types**: First-time purchases from categories user never uses
+- **High-Risk Merchants**: Transactions with merchants flagged for fraud
+- **Online vs In-Person Shifts**: Sudden changes in purchase channel preferences
+
+#### **5. Behavioral Anomaly Fraud**
+- **Spending Pattern Breaks**: Dramatic changes from established user behavior
+- **Frequency Anomalies**: Too many or too few transactions compared to user history
+- **User Profile Mismatches**: Transactions inconsistent with user demographics
+
+### **🔍 Specific Fraud Scenarios Detected**
+
+```
+🚨 Real-World Examples Our System Catches:
+
+1. Card Testing Fraud
+   → Multiple $1-5 transactions to test stolen card validity
+   → Detection: Unusual frequency + small amounts + new merchants
+
+2. Account Takeover  
+   → Legitimate user's account compromised, spending patterns change
+   → Detection: Behavioral shift + location change + unusual merchants
+
+3. Stolen Card Fraud
+   → Physical card theft with immediate high-value purchases  
+   → Detection: Geographic jump + high amounts + unusual timing
+
+4. Synthetic Identity Fraud
+   → Fake identities with artificial spending to build credit
+   → Detection: Unrealistic behavioral patterns + merchant anomalies
+
+5. CNP (Card Not Present) Fraud
+   → Online purchases with stolen card details
+   → Detection: New device + unusual location + high-risk merchants
+```
+
+### **📊 Advanced Pattern Recognition**
+
+**Cross-Feature Fraud Detection Examples:**
+```
+🚨 HIGH RISK: $5000 ATM withdrawal at 2am (10x user average + unusual hour)
+🚨 HIGH RISK: Online purchase from new country while user's phone is local  
+🚨 HIGH RISK: 15 small transactions in 1 hour across different merchants
+🟡 MEDIUM RISK: $500 gas purchase (3x normal but reasonable location)
+🟢 LOW RISK: Regular grocery store purchase during normal hours
+```
+
+---
+
 ## 🚀 **Our Solution: Triple AI Architecture**
 
 ### **Revolutionary Approach:**
