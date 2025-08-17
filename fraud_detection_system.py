@@ -12,6 +12,7 @@ import logging
 from typing import Dict, List, Tuple, Optional
 import json
 import time
+import shap
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -32,6 +33,8 @@ class FraudDetectionSystem:
         self.scalers = {}
         self.encoders = {}
         self.feature_importance = {}
+        self.shap_explainer = None  # SHAP explainer for detailed explanations
+        self.shap_background_data = None  # Background data for SHAP
         self.db_path = db_path
         self.setup_logging()
         self.setup_database()
@@ -246,6 +249,23 @@ class FraudDetectionSystem:
             self.models['random_forest'].feature_importances_
         ))
         
+        # Initialize SHAP explainer
+        self.logger.info("Initializing SHAP explainer...")
+        try:
+            # Use a sample of training data as background for SHAP
+            background_size = min(100, len(X_train))
+            self.shap_background_data = X_train.sample(n=background_size, random_state=42)
+            
+            # Create SHAP explainer for Random Forest
+            self.shap_explainer = shap.TreeExplainer(
+                self.models['random_forest'], 
+                data=self.shap_background_data
+            )
+            self.logger.info("SHAP explainer initialized successfully")
+        except Exception as e:
+            self.logger.warning(f"Could not initialize SHAP explainer: {str(e)}")
+            self.shap_explainer = None
+        
         self.logger.info("Model training completed successfully")
     
     def evaluate_models(self, X_test, y_test):
@@ -391,7 +411,7 @@ class FraudDetectionSystem:
     
     def get_model_explanation(self, transaction_data):
         """
-        Provide explanation for fraud prediction (for regulatory compliance)
+        Provide explanation for fraud prediction using SHAP (for regulatory compliance)
         """
         # Get prediction (this already handles feature engineering)
         result = self.predict_transaction(transaction_data)
@@ -422,31 +442,115 @@ class FraudDetectionSystem:
         
         X = features_df[self.feature_columns]
         
-        # Create explanation based on feature values and importance
+        # Try to use SHAP explanations if available
         explanations = []
-        feature_values = dict(zip(self.feature_columns, X.iloc[0].values))
+        shap_explanation = None
+        explanation_method = "SHAP"
         
-        # Sort features by importance and highlight key factors
-        sorted_features = sorted(self.feature_importance.items(), key=lambda x: x[1], reverse=True)
+        if self.shap_explainer is not None:
+            try:
+                self.logger.info("Using SHAP explainer for explanations...")
+                # Get SHAP values for this specific prediction
+                shap_values = self.shap_explainer.shap_values(X)
+                self.logger.info(f"SHAP values type: {type(shap_values)}")
+                
+                # For binary classification, shap_values might be 2D array
+                if isinstance(shap_values, list):
+                    # Use SHAP values for class 1 (fraud)
+                    shap_vals = shap_values[1][0] if len(shap_values) > 1 else shap_values[0][0]
+                    self.logger.info(f"Using SHAP values for class 1 (fraud) from list")
+                else:
+                    # For 2D array with shape (features, classes), take fraud class (class 1)
+                    if shap_values.ndim == 2 and shap_values.shape[1] == 2:
+                        shap_vals = shap_values[:, 1]  # Take fraud class (column 1) for all features
+                        self.logger.info(f"Using SHAP values for fraud class from 2D array, shape: {shap_vals.shape}")
+                    elif shap_values.ndim == 3:
+                        shap_vals = shap_values[0, :, 1]  # Take fraud class for first sample  
+                        self.logger.info(f"Using SHAP values for fraud class from 3D array")
+                    else:
+                        shap_vals = shap_values[0] if shap_values.ndim > 1 else shap_values
+                        self.logger.info(f"Using SHAP values, final shape: {shap_vals.shape if hasattr(shap_vals, 'shape') else 'scalar'}")
+                
+                # Get expected value (baseline)
+                expected_value = self.shap_explainer.expected_value
+                if isinstance(expected_value, np.ndarray):
+                    expected_value = expected_value[1] if len(expected_value) > 1 else expected_value[0]
+                elif isinstance(expected_value, list):
+                    expected_value = expected_value[1] if len(expected_value) > 1 else expected_value[0]
+                
+                self.logger.info(f"Expected value: {expected_value}")
+                
+                # Create explanations from SHAP values
+                feature_values = dict(zip(self.feature_columns, X.iloc[0].values))
+                self.logger.info(f"SHAP values shape: {shap_vals.shape if hasattr(shap_vals, 'shape') else 'no shape'}")
+                self.logger.info(f"SHAP values content: {shap_vals}")
+                self.logger.info(f"Feature columns length: {len(self.feature_columns)}")
+                
+                # Convert to Python float values to avoid numpy array issues
+                shap_vals_list = [float(val) for val in shap_vals]
+                shap_contributions = dict(zip(self.feature_columns, shap_vals_list))
+                
+                # Sort by absolute SHAP contribution
+                sorted_features = sorted(
+                    shap_contributions.items(), 
+                    key=lambda x: abs(x[1]), 
+                    reverse=True
+                )
+                
+                for feature, shap_value in sorted_features[:5]:  # Top 5 features
+                    value = feature_values[feature]
+                    explanations.append({
+                        'feature': feature,
+                        'value': float(value),
+                        'shap_value': float(shap_value),
+                        'importance': float(abs(shap_value)),
+                        'contribution_direction': 'increases' if shap_value > 0 else 'decreases'
+                    })
+                
+                shap_explanation = {
+                    'expected_value': float(expected_value),
+                    'prediction': float(expected_value + sum(shap_vals)),
+                    'total_shap_contribution': float(sum(shap_vals))
+                }
+                
+                self.logger.info(f"SHAP explanation completed successfully with {len(explanations)} features")
+                
+            except Exception as e:
+                self.logger.error(f"SHAP explanation failed: {str(e)}")
+                self.logger.error(f"Error type: {type(e)}")
+                import traceback
+                self.logger.error(f"Traceback: {traceback.format_exc()}")
+                explanation_method = "Feature_Importance_Fallback"
+                self.shap_explainer = None  # Disable for future calls
+        else:
+            explanation_method = "Feature_Importance"
         
-        for feature, importance in sorted_features[:5]:  # Top 5 features
-            value = feature_values[feature]
-            explanations.append({
-                'feature': feature,
-                'value': float(value),
-                'importance': float(importance),
-                'contribution': float(importance * value)
-            })
+        # Fallback to traditional feature importance if SHAP fails
+        if not explanations:
+            self.logger.info("Using traditional feature importance...")
+            feature_values = dict(zip(self.feature_columns, X.iloc[0].values))
+            sorted_features = sorted(self.feature_importance.items(), key=lambda x: x[1], reverse=True)
+            
+            for feature, importance in sorted_features[:5]:  # Top 5 features
+                value = feature_values[feature]
+                explanations.append({
+                    'feature': feature,
+                    'value': float(value),
+                    'importance': float(importance),
+                    'contribution': float(importance * value)
+                })
         
         return {
             'fraud_score': result['fraud_score'],
             'risk_level': result['risk_level'],
             'key_factors': explanations,
-            'explanation_text': self._generate_explanation_text(explanations, result)
+            'explanation_text': self._generate_explanation_text(explanations, result),
+            'shap_explanation': shap_explanation,
+            'explanation_method': explanation_method
         }
     
     def _generate_explanation_text(self, explanations, result):
-        """Generate human-readable explanation"""
+        """Generate human-readable explanation with SHAP support"""
         risk_level = result['risk_level']
         score = result['fraud_score']
         
@@ -463,19 +567,37 @@ class FraudDetectionSystem:
             feature = exp['feature']
             value = exp['value']
             
-            if 'amount' in feature and value > 2:
-                factors.append("unusually high transaction amount")
-            elif 'frequency' in feature and value > 5:
-                factors.append("high transaction frequency")
-            elif 'unusual_hour' in feature and value > 0.5:
-                factors.append("transaction at unusual time")
-            elif 'location_risk' in feature and value > 0.7:
-                factors.append("high-risk location")
+            # Check if this is SHAP explanation
+            if 'shap_value' in exp:
+                shap_val = exp['shap_value']
+                direction = exp['contribution_direction']
+                
+                if 'amount' in feature and abs(shap_val) > 0.1:
+                    factors.append(f"transaction amount {direction} fraud risk significantly")
+                elif 'frequency' in feature and abs(shap_val) > 0.1:
+                    factors.append(f"transaction frequency {direction} fraud probability")
+                elif 'unusual_hour' in feature and abs(shap_val) > 0.05:
+                    factors.append(f"unusual timing {direction} risk assessment")
+                elif 'location_risk' in feature and abs(shap_val) > 0.1:
+                    factors.append(f"location risk {direction} fraud likelihood")
+                elif 'risk_interaction' in feature and abs(shap_val) > 0.1:
+                    factors.append(f"combined risk factors {direction} overall score")
+            else:
+                # Traditional feature importance explanation
+                if 'amount' in feature and value > 2:
+                    factors.append("unusually high transaction amount")
+                elif 'frequency' in feature and value > 5:
+                    factors.append("high transaction frequency")
+                elif 'unusual_hour' in feature and value > 0.5:
+                    factors.append("transaction at unusual time")
+                elif 'location_risk' in feature and value > 0.7:
+                    factors.append("high-risk location")
         
         if factors:
             return base_text + " " + ", ".join(factors)
         else:
-            return base_text + " multiple risk indicators"
+            method = "advanced SHAP analysis" if any('shap_value' in exp for exp in explanations) else "multiple risk indicators"
+            return base_text + f" {method}"
     
     def monitor_model_performance(self):
         """Monitor model performance and detect drift"""

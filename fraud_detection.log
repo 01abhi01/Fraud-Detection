@@ -103,3 +103,355 @@ Top 5 Most Important Features:
 2025-08-18 02:11:18,719 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
 2025-08-18 02:11:19,874 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
 2025-08-18 02:11:21,934 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-08-18 02:19:20,197 - INFO - Database initialized successfully
+2025-08-18 02:19:20,212 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:19:20,212 - INFO - Starting model training...
+2025-08-18 02:19:20,731 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:19:20,731 - INFO - 
+Random Forest Performance:
+2025-08-18 02:19:20,733 - INFO - ROC AUC: 1.0000
+2025-08-18 02:19:20,739 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:19:20,740 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:19:20,745 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:19:20,746 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:19:20,752 - INFO - Initializing SHAP explainer...
+2025-08-18 02:19:20,763 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:19:20,764 - INFO - Model training completed successfully
+2025-08-18 02:19:22,568 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:19:23,727 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:19:25,787 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-08-18 02:19:56,901 - WARNING - SHAP explanation failed, using fallback: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-08-18 02:21:13,533 - INFO - Database initialized successfully
+2025-08-18 02:21:13,545 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:21:13,546 - INFO - Starting model training...
+2025-08-18 02:21:14,051 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:21:14,052 - INFO - 
+Random Forest Performance:
+2025-08-18 02:21:14,054 - INFO - ROC AUC: 1.0000
+2025-08-18 02:21:14,060 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:21:14,060 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:21:14,067 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:21:14,068 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:21:14,074 - INFO - Initializing SHAP explainer...
+2025-08-18 02:21:14,079 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:21:14,080 - INFO - Model training completed successfully
+2025-08-18 02:21:15,890 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:21:17,084 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:21:19,167 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-08-18 02:21:45,888 - WARNING - SHAP explanation failed, using fallback: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-08-18 02:23:00,218 - INFO - Database initialized successfully
+2025-08-18 02:23:00,226 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:23:00,226 - INFO - Starting model training...
+2025-08-18 02:23:00,729 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:23:00,729 - INFO - 
+Random Forest Performance:
+2025-08-18 02:23:00,732 - INFO - ROC AUC: 1.0000
+2025-08-18 02:23:00,738 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:23:00,739 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:23:00,745 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:23:00,745 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:23:00,754 - INFO - Initializing SHAP explainer...
+2025-08-18 02:23:00,763 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:23:00,764 - INFO - Model training completed successfully
+2025-08-18 02:23:02,544 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:23:40,636 - INFO - Database initialized successfully
+2025-08-18 02:23:40,641 - INFO - Generated 1000 synthetic transactions (2.0% fraud)
+2025-08-18 02:23:40,641 - INFO - Starting model training...
+2025-08-18 02:23:40,955 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:23:40,955 - INFO - 
+Random Forest Performance:
+2025-08-18 02:23:40,961 - INFO - ROC AUC: 1.0000
+2025-08-18 02:23:40,967 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       196
+         1.0       1.00      1.00      1.00         4
+
+    accuracy                           1.00       200
+   macro avg       1.00      1.00      1.00       200
+weighted avg       1.00      1.00      1.00       200
+
+2025-08-18 02:23:40,968 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:23:40,974 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.85      0.92       196
+         1.0       0.12      1.00      0.21         4
+
+    accuracy                           0.85       200
+   macro avg       0.56      0.92      0.56       200
+weighted avg       0.98      0.85      0.90       200
+
+2025-08-18 02:23:40,974 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:23:40,982 - INFO - Initializing SHAP explainer...
+2025-08-18 02:23:40,988 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:23:40,989 - INFO - Model training completed successfully
+2025-08-18 02:23:41,025 - INFO - Using SHAP explainer for explanations...
+2025-08-18 02:23:41,027 - INFO - SHAP values type: <class 'numpy.ndarray'>
+2025-08-18 02:23:41,028 - INFO - Using single SHAP values
+2025-08-18 02:23:41,028 - INFO - Expected value: 0.029207510962175866
+2025-08-18 02:23:41,029 - ERROR - SHAP explanation failed: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-08-18 02:23:41,029 - ERROR - Error type: <class 'ValueError'>
+2025-08-18 02:23:41,031 - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\ratha\Fraud Detection\fraud_detection_system.py", line 480, in get_model_explanation
+    sorted_features = sorted(shap_contributions.items(),
+                           key=lambda x: abs(x[1]), reverse=True)
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+2025-08-18 02:23:41,031 - INFO - Using traditional feature importance...
+2025-08-18 02:24:22,743 - INFO - Database initialized successfully
+2025-08-18 02:24:22,748 - INFO - Generated 1000 synthetic transactions (2.0% fraud)
+2025-08-18 02:24:22,749 - INFO - Starting model training...
+2025-08-18 02:24:23,155 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:24:23,156 - INFO - 
+Random Forest Performance:
+2025-08-18 02:24:23,158 - INFO - ROC AUC: 1.0000
+2025-08-18 02:24:23,164 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       196
+         1.0       1.00      1.00      1.00         4
+
+    accuracy                           1.00       200
+   macro avg       1.00      1.00      1.00       200
+weighted avg       1.00      1.00      1.00       200
+
+2025-08-18 02:24:23,164 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:24:23,170 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.85      0.92       196
+         1.0       0.12      1.00      0.21         4
+
+    accuracy                           0.85       200
+   macro avg       0.56      0.92      0.56       200
+weighted avg       0.98      0.85      0.90       200
+
+2025-08-18 02:24:23,171 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:24:23,178 - INFO - Initializing SHAP explainer...
+2025-08-18 02:24:23,184 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:24:23,184 - INFO - Model training completed successfully
+2025-08-18 02:24:23,218 - INFO - Using SHAP explainer for explanations...
+2025-08-18 02:24:23,220 - INFO - SHAP values type: <class 'numpy.ndarray'>
+2025-08-18 02:24:23,221 - INFO - Using single SHAP values
+2025-08-18 02:24:23,221 - INFO - Expected value: 0.029207510962175866
+2025-08-18 02:24:23,221 - ERROR - SHAP explanation failed: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-08-18 02:24:23,221 - ERROR - Error type: <class 'ValueError'>
+2025-08-18 02:24:23,223 - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\ratha\Fraud Detection\fraud_detection_system.py", line 480, in get_model_explanation
+    sorted_features = sorted(
+        [(feature, shap_val) for feature, shap_val in shap_contributions.items()],
+        key=lambda x: abs(x[1]),
+        reverse=True
+    )
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+2025-08-18 02:24:23,224 - INFO - Using traditional feature importance...
+2025-08-18 02:24:53,155 - INFO - Database initialized successfully
+2025-08-18 02:24:53,160 - INFO - Generated 1000 synthetic transactions (2.0% fraud)
+2025-08-18 02:24:53,161 - INFO - Starting model training...
+2025-08-18 02:24:53,448 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:24:53,449 - INFO - 
+Random Forest Performance:
+2025-08-18 02:24:53,451 - INFO - ROC AUC: 1.0000
+2025-08-18 02:24:53,457 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       196
+         1.0       1.00      1.00      1.00         4
+
+    accuracy                           1.00       200
+   macro avg       1.00      1.00      1.00       200
+weighted avg       1.00      1.00      1.00       200
+
+2025-08-18 02:24:53,457 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:24:53,466 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.85      0.92       196
+         1.0       0.12      1.00      0.21         4
+
+    accuracy                           0.85       200
+   macro avg       0.56      0.92      0.56       200
+weighted avg       0.98      0.85      0.90       200
+
+2025-08-18 02:24:53,467 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:24:53,473 - INFO - Initializing SHAP explainer...
+2025-08-18 02:24:53,480 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:24:53,481 - INFO - Model training completed successfully
+2025-08-18 02:24:53,520 - INFO - Using SHAP explainer for explanations...
+2025-08-18 02:24:53,522 - INFO - SHAP values type: <class 'numpy.ndarray'>
+2025-08-18 02:24:53,522 - INFO - Using single SHAP values
+2025-08-18 02:24:53,522 - INFO - Expected value: 0.029207510962175866
+2025-08-18 02:24:53,522 - INFO - SHAP values shape: (16, 2)
+2025-08-18 02:24:53,523 - INFO - SHAP values content: [[-0.00477615  0.00477615]
+ [-0.00592558  0.00592558]
+ [-0.03508664  0.03508664]
+ [ 0.          0.        ]
+ [ 0.          0.        ]
+ [-0.00113438  0.00113438]
+ [-0.05643237  0.05643238]
+ [-0.05208206  0.05208207]
+ [-0.15836046  0.15836046]
+ [-0.21585663  0.21585663]
+ [-0.00377692  0.00377692]
+ [ 0.          0.        ]
+ [-0.01940436  0.01940436]
+ [-0.29658966  0.29658966]
+ [-0.0572172   0.0572172 ]
+ [-0.033653    0.033653  ]]
+2025-08-18 02:24:53,524 - INFO - Feature columns length: 16
+2025-08-18 02:24:53,524 - ERROR - SHAP explanation failed: only length-1 arrays can be converted to Python scalars
+2025-08-18 02:24:53,524 - ERROR - Error type: <class 'TypeError'>
+2025-08-18 02:24:53,526 - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\ratha\Fraud Detection\fraud_detection_system.py", line 482, in get_model_explanation
+    shap_vals_list = [float(val) for val in shap_vals]
+                      ~~~~~^^^^^
+TypeError: only length-1 arrays can be converted to Python scalars
+
+2025-08-18 02:24:53,527 - INFO - Using traditional feature importance...
+2025-08-18 02:25:44,174 - INFO - Database initialized successfully
+2025-08-18 02:25:44,180 - INFO - Generated 1000 synthetic transactions (2.0% fraud)
+2025-08-18 02:25:44,180 - INFO - Starting model training...
+2025-08-18 02:25:44,501 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:25:44,501 - INFO - 
+Random Forest Performance:
+2025-08-18 02:25:44,503 - INFO - ROC AUC: 1.0000
+2025-08-18 02:25:44,512 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       196
+         1.0       1.00      1.00      1.00         4
+
+    accuracy                           1.00       200
+   macro avg       1.00      1.00      1.00       200
+weighted avg       1.00      1.00      1.00       200
+
+2025-08-18 02:25:44,513 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:25:44,523 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.85      0.92       196
+         1.0       0.12      1.00      0.21         4
+
+    accuracy                           0.85       200
+   macro avg       0.56      0.92      0.56       200
+weighted avg       0.98      0.85      0.90       200
+
+2025-08-18 02:25:44,523 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:25:44,530 - INFO - Initializing SHAP explainer...
+2025-08-18 02:25:44,539 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:25:44,540 - INFO - Model training completed successfully
+2025-08-18 02:25:44,576 - INFO - Using SHAP explainer for explanations...
+2025-08-18 02:25:44,579 - INFO - SHAP values type: <class 'numpy.ndarray'>
+2025-08-18 02:25:44,579 - INFO - Using SHAP values for fraud class from 3D array
+2025-08-18 02:25:44,579 - INFO - Expected value: 0.029207510962175866
+2025-08-18 02:25:44,580 - INFO - SHAP values shape: (16,)
+2025-08-18 02:25:44,580 - INFO - SHAP values content: [0.00477615 0.00592558 0.03508664 0.         0.         0.00113438
+ 0.05643238 0.05208207 0.15836046 0.21585663 0.00377692 0.
+ 0.01940436 0.29658966 0.0572172  0.033653  ]
+2025-08-18 02:25:44,581 - INFO - Feature columns length: 16
+2025-08-18 02:25:44,581 - INFO - SHAP explanation completed successfully with 5 features
+2025-08-18 02:26:02,367 - INFO - Database initialized successfully
+2025-08-18 02:26:02,376 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:26:02,376 - INFO - Starting model training...
+2025-08-18 02:26:02,856 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:26:02,857 - INFO - 
+Random Forest Performance:
+2025-08-18 02:26:02,858 - INFO - ROC AUC: 1.0000
+2025-08-18 02:26:02,865 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:26:02,866 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:26:02,873 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:26:02,874 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:26:02,881 - INFO - Initializing SHAP explainer...
+2025-08-18 02:26:02,887 - INFO - SHAP explainer initialized successfully
+2025-08-18 02:26:02,888 - INFO - Model training completed successfully
+2025-08-18 02:26:04,839 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"

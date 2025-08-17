@@ -132,6 +132,7 @@ class UserFriendlyFraudDetector:
 - **Fraud Probability:** {fraud_score*100:.1f}%
 - **Decision:** **{action}**
 - **Analysis Time:** {processing_time:.1f}ms
+- **Explanation Method:** {explanation.get('explanation_method', 'Traditional')}
 
 ### 💡 Why This Decision?
 {explanation['explanation_text']}
@@ -139,10 +140,30 @@ class UserFriendlyFraudDetector:
 ### 🔍 Main Risk Factors:
 """
             
+            # Display SHAP or traditional explanations
             for i, factor in enumerate(explanation['key_factors'][:3], 1):
                 feature_name = self._humanize_feature_name(factor['feature'])
-                importance = factor['importance']
-                result_text += f"{i}. **{feature_name}** (influence: {importance:.1%})\n"
+                
+                if 'shap_value' in factor:
+                    # SHAP explanation
+                    shap_val = factor['shap_value']
+                    direction = factor['contribution_direction']
+                    result_text += f"{i}. **{feature_name}** ({direction} risk by {abs(shap_val):.3f})\n"
+                else:
+                    # Traditional explanation
+                    importance = factor['importance']
+                    result_text += f"{i}. **{feature_name}** (influence: {importance:.1%})\n"
+            
+            # Add SHAP summary if available
+            if explanation.get('shap_explanation'):
+                shap_info = explanation['shap_explanation']
+                result_text += f"""
+
+### 🧠 Advanced SHAP Analysis:
+- **Baseline Risk:** {shap_info['expected_value']:.3f}
+- **This Transaction:** {shap_info['prediction']:.3f}
+- **Total SHAP Impact:** {shap_info['total_shap_contribution']:.3f}
+"""
             
             # Set status message
             if risk_level == 'HIGH':
