@@ -186,24 +186,32 @@ def create_interface():
     with gr.Blocks(title="🛡️ Smart Fraud Detection", theme=gr.themes.Soft()) as interface:
         gr.Markdown("""
         # 🛡️ Smart Fraud Detection System
-        ### Tell us about your transaction in your own words - we'll handle the technical analysis!
+        ### For Financial Institutions, Security Teams & Fraud Analysts
         
-        Just describe your purchase naturally, and our AI will determine if it's safe or suspicious.
+        **Demo Interface:** Input transaction details to analyze potential fraud patterns.
+        This system would typically integrate with payment processors and banking systems
+        to automatically analyze transactions in real-time.
+        
+        **Use Cases:**
+        - 🏦 **Bank Staff**: Investigate flagged transactions
+        - 🔒 **Security Teams**: Analyze suspicious activity patterns  
+        - 📊 **Risk Analysts**: Test fraud detection models
+        - 🎓 **Training**: Demonstrate AI fraud detection capabilities
         """)
         
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("## 💳 Transaction Details")
+                gr.Markdown("## 💳 Transaction Under Investigation")
                 
                 amount = gr.Number(
-                    label="💰 How much are you spending? ($)",
+                    label="💰 Transaction Amount ($)",
                     value=100.0,
                     minimum=0.01,
-                    info="Enter the purchase amount"
+                    info="Amount of the suspicious transaction"
                 )
                 
                 hour = gr.Slider(
-                    label="🕐 What time is it? (24-hour format)",
+                    label="🕐 Transaction Time (24-hour format)",
                     minimum=0,
                     maximum=23,
                     value=14,
@@ -212,52 +220,52 @@ def create_interface():
                 )
                 
                 merchant_category = gr.Dropdown(
-                    label="🏪 What type of store/service?",
+                    label="🏪 Merchant Type",
                     choices=["grocery", "gas", "restaurant", "retail", "online", "atm"],
                     value="grocery",
-                    info="Select the category that best matches"
+                    info="Category of merchant where transaction occurred"
                 )
                 
                 is_weekend = gr.Checkbox(
-                    label="📅 Is this a weekend?",
+                    label="📅 Weekend Transaction",
                     value=False,
-                    info="Check if today is Saturday or Sunday"
+                    info="Check if transaction occurred on Saturday or Sunday"
                 )
                 
                 days_since = gr.Number(
-                    label="📊 Days since your last purchase",
+                    label="📊 Days since customer's last transaction",
                     value=1.0,
                     minimum=0.0,
-                    info="How many days ago was your last transaction?"
+                    info="Time gap from customer's previous transaction"
                 )
                 
             with gr.Column(scale=1):
-                gr.Markdown("## 📝 Describe Your Purchase")
+                gr.Markdown("## 📝 Transaction Context Analysis")
                 
                 location_description = gr.Textbox(
-                    label="📍 Where are you shopping?",
-                    placeholder="e.g., 'at my usual grocery store', 'online from home', 'unfamiliar area while traveling', 'foreign country'",
+                    label="📍 Location Assessment",
+                    placeholder="e.g., 'customer's usual shopping area', 'foreign country', 'high-risk neighborhood', 'unfamiliar location'",
                     lines=2,
-                    info="Describe the location in your own words"
+                    info="Describe the transaction location context"
                 )
                 
                 spending_description = gr.Textbox(
-                    label="💸 How does this amount compare to your normal spending?",
-                    placeholder="e.g., 'normal amount', 'much more than usual', 'emergency purchase', 'typical for this store'",
+                    label="💸 Spending Pattern Analysis",
+                    placeholder="e.g., 'normal for this customer', 'much higher than usual', 'emergency purchase pattern', 'suspicious amount'",
                     lines=2,
-                    info="Tell us about this purchase amount"
+                    info="How does this amount compare to customer's typical spending?"
                 )
                 
                 spending_pattern = gr.Textbox(
-                    label="🔄 How often have you been shopping lately?",
-                    placeholder="e.g., 'normal shopping pattern', 'multiple purchases today', 'first transaction today', 'shopping more than usual'",
+                    label="🔄 Recent Activity Pattern",
+                    placeholder="e.g., 'normal shopping frequency', 'multiple rapid transactions', 'first transaction today', 'unusual activity spike'",
                     lines=2,
-                    info="Describe your recent shopping activity"
+                    info="Describe the customer's recent transaction patterns"
                 )
                 
         with gr.Row():
             with gr.Column(scale=1):
-                analyze_btn = gr.Button("🔍 Analyze Transaction", variant="primary", size="lg")
+                analyze_btn = gr.Button("🔍 Analyze Transaction for Fraud", variant="primary", size="lg")
                 
         with gr.Row():
             with gr.Column(scale=2):
@@ -266,11 +274,11 @@ def create_interface():
                 status_output = gr.Textbox(label="Transaction Status", interactive=False)
         
         # Example buttons
-        gr.Markdown("## 🎯 Try These Examples:")
+        gr.Markdown("## 🎯 Test with Example Cases:")
         with gr.Row():
-            normal_btn = gr.Button("✅ Normal Purchase", variant="secondary")
-            suspicious_btn = gr.Button("🚨 Suspicious Purchase", variant="secondary")
-            travel_btn = gr.Button("✈️ Travel Purchase", variant="secondary")
+            normal_btn = gr.Button("✅ Legitimate Transaction", variant="secondary")
+            suspicious_btn = gr.Button("🚨 Fraudulent Transaction", variant="secondary")
+            travel_btn = gr.Button("✈️ Travel Transaction", variant="secondary")
         
         # Wire up the prediction
         analyze_btn.click(
@@ -286,9 +294,9 @@ def create_interface():
                 50.0,  # amount
                 15,    # hour
                 "grocery",  # merchant
-                "my regular neighborhood store",  # location
-                "normal weekly grocery shopping",  # spending
-                "typical shopping pattern",  # pattern
+                "customer's regular neighborhood store",  # location
+                "normal weekly grocery shopping amount",  # spending
+                "typical shopping pattern for this customer",  # pattern
                 False, # weekend
                 2.0    # days since
             )
@@ -298,9 +306,9 @@ def create_interface():
                 5000.0,  # amount
                 3,       # hour
                 "online", # merchant
-                "unfamiliar website, first time ordering", # location
-                "way more than I usually spend",  # spending
-                "multiple large purchases today", # pattern
+                "unfamiliar website from high-risk location", # location
+                "way more than customer usually spends",  # spending
+                "multiple large transactions in short timeframe", # pattern
                 True,    # weekend
                 0.1      # days since
             )
@@ -310,9 +318,9 @@ def create_interface():
                 200.0,   # amount
                 22,      # hour
                 "restaurant", # merchant
-                "foreign country while on vacation", # location
-                "bit more than usual but reasonable for travel", # spending
-                "few purchases since arriving", # pattern
+                "foreign country - customer is traveling", # location
+                "higher than normal but reasonable for travel", # spending
+                "few transactions since travel began", # pattern
                 False,   # weekend
                 1.0      # days since
             )
@@ -338,13 +346,14 @@ def create_interface():
         gr.Markdown("""
         ---
         ### 🔒 How It Works:
-        Our AI analyzes your description using advanced machine learning to automatically calculate:
-        - Location risk based on your description
-        - Spending pattern analysis from your words
-        - Behavioral anomaly detection
-        - 16 different fraud indicators
+        This fraud detection AI automatically analyzes transaction context to calculate:
+        - **Location risk assessment** based on geographic and behavioral patterns
+        - **Spending anomaly detection** compared to customer's normal behavior  
+        - **Temporal pattern analysis** for unusual timing indicators
+        - **Behavioral risk scoring** across 16 different fraud indicators
         
-        **No technical knowledge required - just describe your purchase naturally!**
+        **Perfect for:** Banks, payment processors, security teams, and fraud analysts
+        who need to quickly assess transaction legitimacy and risk levels.
         """)
     
     return interface
@@ -356,5 +365,6 @@ if __name__ == "__main__":
         server_name="0.0.0.0",
         server_port=7860,
         share=False,
-        show_api=False
+        show_api=False,
+        inbrowser=True  # This will automatically open the browser
     )

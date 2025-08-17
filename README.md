@@ -40,14 +40,15 @@ pip install -r requirements.txt
 
 ### 🎮 Interactive Demos
 
-#### 1. **Gradio Web Interface** (Recommended)
+#### 1. **User-Friendly Gradio Interface** (Recommended)
 ```bash
-python interactive_gradio.py
+python user_friendly_gradio.py
 ```
-- Beautiful web interface at `http://localhost:7860`
-- Manual transaction entry with sliders and dropdowns
-- Real-time fraud analysis with explanations
-- Quick example buttons for testing
+- **Natural language inputs** - describe your purchase in plain English
+- **Automatic technical calculations** - no need to know technical parameters
+- **Beautiful web interface** at `http://localhost:7860`
+- **Example scenarios** with one-click testing
+- **Real-time fraud analysis** with explanations
 
 #### 2. **Enhanced Demo Script**
 ```bash

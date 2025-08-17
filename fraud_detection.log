@@ -1,0 +1,105 @@
+2025-08-18 02:07:01,346 - INFO - Database initialized successfully
+2025-08-18 02:07:01,358 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:07:01,358 - INFO - Starting model training...
+2025-08-18 02:07:01,895 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:07:01,896 - INFO - 
+Random Forest Performance:
+2025-08-18 02:07:01,898 - INFO - ROC AUC: 1.0000
+2025-08-18 02:07:01,904 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:07:01,905 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:07:01,911 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:07:01,911 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:07:01,918 - INFO - Model training completed successfully
+2025-08-18 02:07:03,796 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:07:04,986 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:07:07,073 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-08-18 02:07:55,506 - INFO - Database initialized successfully
+2025-08-18 02:07:55,516 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:07:55,517 - INFO - Starting model training...
+2025-08-18 02:07:55,985 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:07:55,985 - INFO - 
+Random Forest Performance:
+2025-08-18 02:07:55,987 - INFO - ROC AUC: 1.0000
+2025-08-18 02:07:55,992 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:07:55,993 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:07:56,000 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:07:56,001 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:07:56,006 - INFO - Model training completed successfully
+2025-08-18 02:07:57,830 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:07:58,970 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:08:01,079 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-08-18 02:11:16,283 - INFO - Database initialized successfully
+2025-08-18 02:11:16,296 - INFO - Generated 5000 synthetic transactions (3.0% fraud)
+2025-08-18 02:11:16,296 - INFO - Starting model training...
+2025-08-18 02:11:16,840 - INFO - === MODEL EVALUATION ===
+2025-08-18 02:11:16,840 - INFO - 
+Random Forest Performance:
+2025-08-18 02:11:16,843 - INFO - ROC AUC: 1.0000
+2025-08-18 02:11:16,848 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00       970
+         1.0       1.00      1.00      1.00        30
+
+    accuracy                           1.00      1000
+   macro avg       1.00      1.00      1.00      1000
+weighted avg       1.00      1.00      1.00      1000
+
+2025-08-18 02:11:16,849 - INFO - 
+Isolation Forest Performance:
+2025-08-18 02:11:16,855 - INFO - 
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.90      0.95       970
+         1.0       0.23      1.00      0.38        30
+
+    accuracy                           0.90      1000
+   macro avg       0.62      0.95      0.66      1000
+weighted avg       0.98      0.90      0.93      1000
+
+2025-08-18 02:11:16,856 - INFO - 
+Top 5 Most Important Features:
+2025-08-18 02:11:16,866 - INFO - Model training completed successfully
+2025-08-18 02:11:18,719 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-08-18 02:11:19,874 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-08-18 02:11:21,934 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
